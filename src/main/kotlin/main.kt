@@ -48,7 +48,7 @@ data class ParsedTechnology(val name: String) {
     var multipleOccurrances = false
 
     fun getInsertSqlStatement() : String {
-        return "insert into technology(name) values ('${name}');${if (multipleOccurrances) MULTIPLE_OCCURRENCES_COMMENT else ""}"
+        return "insert into technology (name) values ('${name}');${if (multipleOccurrances) MULTIPLE_OCCURRENCES_COMMENT else ""}"
     }
 }
 
