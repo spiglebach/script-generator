@@ -33,7 +33,7 @@ fun generateMapFromLinesOfFile(filename: String) : Map<String, ParsedTechnology>
     File(filename).forEachLine {
         val key = it.lowercase()
         if (technologyMap.containsKey(key)) {
-            technologyMap[key]!!.multipleOccurrances = true
+            technologyMap[key]!!.multipleOccurrences = true
         } else {
             technologyMap.put(it.lowercase(), ParsedTechnology(it))
         }
@@ -45,10 +45,10 @@ data class ParsedTechnology(val name: String) {
     companion object {
         const val MULTIPLE_OCCURRENCES_COMMENT = " -- you should review this name, multiple occurrences were found"
     }
-    var multipleOccurrances = false
+    var multipleOccurrences = false
 
     fun getInsertSqlStatement() : String {
-        return "insert into technology (name) values ('${name}');${if (multipleOccurrances) MULTIPLE_OCCURRENCES_COMMENT else ""}"
+        return "insert into technology (name) values ('${name}');${if (multipleOccurrences) MULTIPLE_OCCURRENCES_COMMENT else ""}"
     }
 }
 
